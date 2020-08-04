@@ -1,13 +1,26 @@
 .body {
     background-color: #b6faa8;
+
 }
 .page {
-    
+     position: relative;
         background-color: #000000;
         max-width: 1280px;
         margin: 0 auto;
         font-family: 'Helvetica Neue', 'Arial', "sans-serif";
        
+}
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%; 
+    background: rgba(0, 0, 0, 0.7);
+}
+.popup__container {
+    max-width: 430px;
+    height: 330px;
 }
 .header {
     max-width: 882px;
@@ -47,6 +60,9 @@ margin-top: 40.6px;
 .profile__edit_button {
     margin-left: 17px;
 }
+.profile__edit_button:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
 .profile__author {
 
 }
@@ -57,6 +73,10 @@ font-weight: 500;
 font-size: 42px;
 line-height: 56px;
 margin: 0;
+font-style: normal;
+font-weight: 500;
+font-size: 42px;
+line-height: 56px;
 }
 .profile__quote-author-subline{
     color: #ffffff;
@@ -65,10 +85,19 @@ font-weight: normal;
 font-size: 18px;
 line-height: 22px;
 margin: 0;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
 }
 .profile__add_button {
     border: 1px double rgb(253, 252, 252);
 }  
+.profile__add_button:hover {
+    
+ 
+background: rgba(255, 255, 255, 0.6);
+} 
 .Elements {
     max-width: 882px;
     display: grid;
@@ -81,7 +110,8 @@ margin: 0;
 .Element {
     background-color: #ffffff;
     max-width: 282px;
-
+    border-radius: 10px;
+    overflow: hidden;
 }
 .Element__images {
     width: 100%;
@@ -108,4 +138,51 @@ margin: 0;
 }
 .footer__text {
     color: #ffffff;
+}
+@media (min-width: 630px) and (max-width: 860px) {
+    .Elements {
+        
+        grid-template-columns: 282px 282px;
+        grid-row-gap: 21px;
+        justify-content: space-evenly;
+    }
+}
+@media (min-width: 300px) and (max-width: 629px) {
+    .Elements {
+        
+        grid-template-columns:  282px;
+        grid-row-gap: 21px;
+        justify-content: space-evenly;
+    }
+
+.profile {
+    
+    
+    
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.profile__Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.profile__quote-author {
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 56px;
+    text-align: center;
+}
+.profile__quote-author-subline{
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center; 
+}
 }
