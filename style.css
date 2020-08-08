@@ -11,7 +11,8 @@
        
 }
 .popup {
-    position: absolute;
+    position: fixed;
+    
     top: 0;
     left: 0;
     width: 100%;
@@ -19,8 +20,84 @@
     background: rgba(0, 0, 0, 0.7);
 }
 .popup__container {
+    position: relative;
+    margin: auto;
+    margin-top: 20%;
     max-width: 430px;
     height: 330px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-top: 34px;
+}
+.button {
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.0);
+}
+.profile__Close_button {
+    color: black;
+    
+}
+.popup__container_title {
+    font-style: normal;
+   
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    margin-bottom: 54px;
+}
+.Popup__author {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    max-width: 358px;
+    line-height: 17px;
+    margin-left: 36px;
+    margin-right: 36px;
+    border: none;
+}
+.Popup__author-subline {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 36px;
+    margin-right: 36px;
+    max-width: 358px;
+    border: none;
+}
+.Popup__line {
+    opacity: 0.2;
+    border: 1px solid #000000;
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-top: 13px;
+}
+.popup__Submit_Button{
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-top: 43px;
+    align-items: center;
+    background-color: #000000;
+  width: 358px;
+    height: 50.15px;
+}
+.popup__Submit_Button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+}
+.popup__Submit_Button_text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
 }
 .header {
     max-width: 882px;
