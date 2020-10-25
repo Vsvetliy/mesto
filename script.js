@@ -17,26 +17,31 @@ popupCloseButton.addEventListener('click', popupToggle);
 
 
 // Находим форму в DOM
-//let formElement = // Воспользуйтесь методом querySelector()
-
+let formElement = document.querySelector('.popup__container') // Воспользуйтесь методом querySelector()
+console.log(formElement)
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-//function formSubmitHandler (evt) {
-  //  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+function formSubmitHandler (evt) {
+    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                         // Так мы можем определить свою логику отправки.
                         // О том, как это делать, расскажем позже.
 
     // Находим поля формы в DOM
-   // let nameInput = // Воспользуйтесь инструментом .querySelector()
-  //  let jobInput = // Воспользуйтесь инструментом .querySelector()
-
+    let nameInput = formElement.querySelector('.Popup__author');
+  let jobInput = formElement.querySelector('.Popup__author-subline');
+  
+  document.querySelector('.profile__quote-author').textContent = nameInput.value;
+ document.querySelector('.profile__quote-author-subline').textContent = jobInput.value;
+  
     // Получите значение полей из свойства value
+   
 
     // Выберите элементы, куда должны быть вставлены значения полей
 
     // Вставьте новые значения с помощью textContent
-//}
+}
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 //formElement.addEventListener('submit', formSubmitHandler); 
+seveButton.addEventListener('click', formSubmitHandler); 
