@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto: интересные места России</title>
+  <link rel="stylesheet" href="./vendor/normalize.css">
+  
+  <link rel="stylesheet" href="./vendor/fonts.css">
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="body">
+    <div class="page">
+        <div class="popup">
+          <form class="popup__container" name="popup__container">
+            <button type="button" class="popup__close_button"><img src="./images/Close_Icon.svg" alt="закрыть" class="profile__Close_button"></button>
+            
+            <p class="popup__container_title">Редактировать профиль</p>
+            <input type="text" class="Popup__author">
+            <div class="Popup__line"></div>
+            <input type="text" class="Popup__author-subline">
+            <div class="Popup__line"></div>
+            <!--<div class="popup__Submit_Button">
+              <p class="popup__Submit_Button_text">Сохранить</p>
+            </div>-->
+            <button type = "button" name = "button1" class="popup__Submit_Button">
+              <b class="popup__Submit_Button_text">Сохранить</b>
+            </button>
+
+          </form>
+        </div>
+      
+        <header class="header">
+          <img src="./images/logo.svg" alt="логотип" class="header__logo">
+          <div class="header__line"></div>
+        </header>
+        <section class="profile">
+          
+          <div class="profile__Info">
+            <img src="./images/avatar.png" alt="аватар" class="profile__avatar">
+            
+            <div class="profile__author_edit">
+              <div class="profile__author">
+                <h1 class="profile__quote-author">Жак-Ив Кусто</h1>
+                <p class="profile__quote-author-subline">Исследователь океана</p>
+              </div>
+              <img src="./images/Edit_Button.svg" alt="Кнопка редактировать" class="profile__edit_button">
+            </div>
+          </div>
+          <button type = "button" name = "add_button" class="profile__add_button">
+            <img src="./images/Vector.svg" alt="Кнопка добавить" class="profile__add_button_img">
+          </button>
+          <!--<img src="./images/Add_Button.svg" alt="кнопка добавить" class="profile__add_button">-->
+        </section>
+
+
+        <section class="Elements">
+          <div class="Element">
+            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Москва река</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+          <div class="Element">
+            <img src="./images/Altai.jpg" alt="Алтай" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Алтай</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+          <div class="Element">
+            <img src="./images/Baikal.jpg" alt="Байкал" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Озеро Байкал</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+          <div class="Element">
+            <img src="./images/Isaakievskiy_sobor.jpg" alt="исаакиевский собор" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Исаакиевский собор</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+          <div class="Element">
+            <img src="./images/krasnoobsk.jpg" alt="Краснообск" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Краснообск</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+          <div class="Element">
+            <img src="./images/Ural.jpg" alt="Уральские горы" class="Element__images"> 
+            <div class="Element__text_box">
+              <h2 class="Element__text">Уральские горы</h2>
+              <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+         <p class="footer__text">&copy 2020 Mesto Russia</p>
+        </footer>
+      </div>
+      <script src="./script.js"></script>
+</body>
