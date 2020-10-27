@@ -1,11 +1,12 @@
 @import url(../popup/__container/popup__container.css);
-@import url(../popup/__close_button/popup__close-button.css);
-@import url(../popup/__container_title/popup__container-title.css);
+@import url(../popup/__close-button/popup__close-button.css);
+@import url(../popup/__Close-button-img/popup__Close-button-img.css);
+@import url(../popup/__container-title/popup__container-title.css);
 @import url(../popup/__author/Popup__author.css);
 @import url(../popup/__author-subline/Popup__author-subline.css);
 @import url(../popup/__line/Popup__line.css);
-@import url(../popup/__Submit_Button/popup__Submit-Button.css);
-@import url(../popup/__Submit_Button_text/popup__Submit-Button-text.css);
+@import url(../popup/__Submit-Button/popup__Submit-Button.css);
+@import url(../popup/__Submit-Button-text/popup__Submit-Button-text.css);
 
 
 
