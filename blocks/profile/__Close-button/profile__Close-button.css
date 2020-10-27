@@ -1,10 +1,10 @@
-.profile__Close_button {
+.profile__Close-button {
     color: black;
     
 }
 @media (min-width: 300px) and (max-width: 629px) {
     
-    .profile__Close_button {
+    .profile__Close-button {
         max-width: 30px;
        max-height: 30px;
     }
