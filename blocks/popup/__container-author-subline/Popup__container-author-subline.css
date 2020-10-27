@@ -1,4 +1,4 @@
-.Popup__author-subline {
+.Popup__container-author-subline {
     padding: 0;
     font-style: normal;
     font-weight: normal;
@@ -14,7 +14,7 @@
    
 
     
-    .Popup__author-subline {
+    .Popup__container-author-subline {
         width: 238px;
     }
     

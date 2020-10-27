@@ -25,7 +25,7 @@ function formSubmitHandler (evt) {
 
     
     let nameInput = formElement.querySelector('.popup__container-author');
-  let jobInput = formElement.querySelector('.Popup__author-subline');
+  let jobInput = formElement.querySelector('.Popup__container-author-subline');
   
   document.querySelector('.profile__quote-author').textContent = nameInput.value;
  document.querySelector('.profile__quote-author-subline').textContent = jobInput.value;
