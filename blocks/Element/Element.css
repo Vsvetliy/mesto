@@ -1,0 +1,14 @@
+@import url(../Element/__images/Element__images.css);
+
+@import url(../Element/__text_box/Element__text_box.css);
+
+@import url(../Element/__text/Element__text.css);
+
+@import url(../Element/__Group/Element__Group.css);
+
+.Element {
+    background-color: #ffffff;
+    max-width: 282px;
+    border-radius: 10px;
+    overflow: hidden;
+}

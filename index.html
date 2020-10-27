@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto: интересные места России</title>
   <link rel="stylesheet" href="./vendor/normalize.css">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./vendor/fonts.css">
   
+  <link rel="stylesheet" href="./vendor/fonts.css">
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
     <div class="page">
@@ -31,8 +31,8 @@
         </div>
       
         <header class="header">
-          <img src="./images/logo.svg" alt="логотип">
-          <div class="line"></div>
+          <img src="./images/logo.svg" alt="логотип" class="header__logo">
+          <div class="header__line"></div>
         </header>
         <section class="profile">
           
@@ -47,7 +47,10 @@
               <img src="./images/Edit_Button.svg" alt="Кнопка редактировать" class="profile__edit_button">
             </div>
           </div>
-          <img src="./images/Add_Button.svg" alt="кнопка добавить" class="profile__add_button">
+          <button type = "button" name = "add_button" class="profile__add_button">
+            <img src="./images/Vector.svg" alt="Кнопка добавить" class="profile__add_button_img">
+          </button>
+          <!--<img src="./images/Add_Button.svg" alt="кнопка добавить" class="profile__add_button">-->
         </section>
 
 
@@ -60,37 +63,37 @@
             </div>
           </div>
           <div class="Element">
-            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <img src="./images/Altai.jpg" alt="Алтай" class="Element__images"> 
             <div class="Element__text_box">
-              <h2 class="Element__text">Москва река</h2>
+              <h2 class="Element__text">Алтай</h2>
               <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
             </div>
           </div>
           <div class="Element">
-            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <img src="./images/Baikal.jpg" alt="Байкал" class="Element__images"> 
             <div class="Element__text_box">
-              <h2 class="Element__text">Москва река</h2>
+              <h2 class="Element__text">Озеро Байкал</h2>
               <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
             </div>
           </div>
           <div class="Element">
-            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <img src="./images/Isaakievskiy_sobor.jpg" alt="исаакиевский собор" class="Element__images"> 
             <div class="Element__text_box">
-              <h2 class="Element__text">Москва река</h2>
+              <h2 class="Element__text">Исаакиевский собор</h2>
               <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
             </div>
           </div>
           <div class="Element">
-            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <img src="./images/krasnoobsk.jpg" alt="Краснообск" class="Element__images"> 
             <div class="Element__text_box">
-              <h2 class="Element__text">Москва река</h2>
+              <h2 class="Element__text">Краснообск</h2>
               <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
             </div>
           </div>
           <div class="Element">
-            <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
+            <img src="./images/Ural.jpg" alt="Уральские горы" class="Element__images"> 
             <div class="Element__text_box">
-              <h2 class="Element__text">Москва река</h2>
+              <h2 class="Element__text">Уральские горы</h2>
               <img src="./images/Group.svg" alt="сердечко" class="Element__Group"> 
             </div>
           </div>

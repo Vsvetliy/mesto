@@ -1,0 +1,4 @@
+.Element__text_box {
+    display: flex;
+    justify-content: space-between;
+}

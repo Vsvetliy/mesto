@@ -1,0 +1,29 @@
+.Elements {
+    max-width: 882px;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 51px;
+    grid-template-columns: 282px 282px 282px;
+    grid-row-gap: 21px;
+    justify-content: space-between;
+}
+@media (min-width: 630px) and (max-width: 860px) {
+    .Elements {
+        
+        grid-template-columns: 282px 282px;
+        grid-row-gap: 21px;
+        justify-content: space-evenly;
+    }
+    
+}
+@media (min-width: 300px) and (max-width: 629px) {
+    .Elements {
+        
+        grid-template-columns:  282px;
+        grid-row-gap: 21px;
+        justify-content: space-evenly;
+    }
+    
+
+
+}
