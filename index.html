@@ -1,35 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru"></html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto: интересные места России</title>
-  <link rel="stylesheet" href="./vendor/normalize.css">
-  
-  <link rel="stylesheet" href="./vendor/fonts.css">
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
     <div class="page">
-        <div class="popup">
-          <form class="popup__container" name="popup__container">
-            <button type="button" class="popup__close-button"><img src="./images/Close_Icon.svg" alt="закрыть" class="popup__Close-button-img"></button>
-            
-            <p class="popup__container-title">Редактировать профиль</p>
-            <input type="text" class="popup__container-author">
-            <div class="Popup__line"></div>
-            <input type="text" class="Popup__container-author-subline">
-            <div class="Popup__line"></div>
-            <!--<div class="popup__Submit_Button">
-              <p class="popup__Submit_Button_text">Сохранить</p>
-            </div>-->
-            <button type = "button" name = "button1" class="popup__Submit-Button">
-              <b class="popup__Submit-Button-text">Сохранить</b>
-            </button>
-
-          </form>
-        </div>
-      
+              
         <header class="header">
           <img src="./images/logo.svg" alt="логотип" class="header__logo">
           <div class="header__line"></div>
@@ -52,8 +31,6 @@
           </button>
           <!--<img src="./images/Add_Button.svg" alt="кнопка добавить" class="profile__add_button">-->
         </section>
-
-
         <section class="Elements">
           <div class="Element">
             <img src="./images/Moscow_River_during_winter_time.jpg" alt="Корабль на реке" class="Element__images"> 
@@ -98,10 +75,28 @@
             </div>
           </div>
         </section>
+        <div class="popup">
+          <form class="popup__container" name="popup__container">
+            <button type="button" class="popup__close-button"><img src="./images/Close_Icon.svg" alt="закрыть" class="popup__Close-button-img"></button>
+            
+            <h2 class="popup__container-title">Редактировать профиль</h2>
+            <input type="text" class="popup__container-author">
+            <div class="Popup__line"></div>
+            <input type="text" class="Popup__container-author-subline">
+            <div class="Popup__line"></div>
+            <!--<div class="popup__Submit_Button">
+              <p class="popup__Submit_Button_text">Сохранить</p>
+            </div>-->
+            <button type = "button" name = "button1" class="popup__Submit-Button">
+              <b class="popup__Submit-Button-text">Сохранить</b>
+            </button>
 
+          </form>
+        </div>
         <footer class="footer">
          <p class="footer__text">&copy 2020 Mesto Russia</p>
         </footer>
       </div>
       <script src="./script.js"></script>
 </body>
+</html>
