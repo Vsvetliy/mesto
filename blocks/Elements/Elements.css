@@ -1,4 +1,4 @@
-.Elements {
+.elements {
     max-width: 882px;
     display: grid;
     margin: 0 auto;
@@ -8,7 +8,7 @@
     justify-content: space-between;
 }
 @media (min-width: 630px) and (max-width: 860px) {
-    .Elements {
+    .elements {
         
         grid-template-columns: 282px 282px;
         grid-row-gap: 21px;
@@ -17,7 +17,7 @@
     
 }
 @media (min-width: 300px) and (max-width: 629px) {
-    .Elements {
+    .elements {
         
         grid-template-columns:  282px;
         grid-row-gap: 21px;

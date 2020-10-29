@@ -2,7 +2,7 @@ let popup = document.querySelector('.popup');
 let popupOpenButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = popup.querySelector('.popup__close-button');
 let page = document.querySelector('.page');
-let seveButton = document.querySelector('.popup__Submit-Button')
+let seveButton = document.querySelector('.popup__submit-button')
 let songsContainer = document.querySelector('.profile__author-edit');
 let popupToggle = function (event) {
     //event.preventDefault();

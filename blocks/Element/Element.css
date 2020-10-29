@@ -1,12 +1,12 @@
-@import url(../Element/__images/Element__images.css);
+@import url(../element/__images/element__images.css);
 
-@import url(../Element/__text-box/Element__text-box.css);
+@import url(../element/__text-box/element__text-box.css);
 
-@import url(../Element/__text/Element__text.css);
+@import url(../element/__text/element__text.css);
 
-@import url(../Element/__Group/Element__Group.css);
+@import url(../element/__group/element__group.css);
 
-.Element {
+.element {
     background-color: #ffffff;
     max-width: 282px;
     border-radius: 10px;
