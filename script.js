@@ -5,7 +5,7 @@ let page = document.querySelector('.page');
 let seveButton = document.querySelector('.popup__Submit-Button')
 let songsContainer = document.querySelector('.profile__author-edit');
 let popupToggle = function (event) {
-    event.preventDefault();
+    //event.preventDefault();
     popup.classList.toggle('popup_opened');
 
 }
@@ -24,8 +24,8 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
 
     
-    let nameInput = formElement.querySelector('.popup__container-author');
-  let jobInput = formElement.querySelector('.Popup__container-author-subline');
+    let nameInput = formElement.querySelector('.popup__input_author');
+  let jobInput = formElement.querySelector('.popup__input_job');
   
   document.querySelector('.profile__quote-author').textContent = nameInput.value;
  document.querySelector('.profile__quote-author-subline').textContent = jobInput.value;
