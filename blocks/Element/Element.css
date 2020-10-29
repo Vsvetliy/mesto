@@ -5,6 +5,7 @@
 @import url(../element/__text/element__text.css);
 
 @import url(../element/__group/element__group.css);
+@import url(../element/__like-button/element__like-button.css);
 
 .element {
     background-color: #ffffff;
