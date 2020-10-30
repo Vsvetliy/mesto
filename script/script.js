@@ -12,12 +12,8 @@ let jobProfile = document.querySelector('.profile__quote-author-subline');
 //let popupToggle = function (event) {
     //event.preventDefault();
    //popup.classList.toggle('popup_opened');
-
 //}
-
-
 //popupOpenButton.addEventListener('click', popupToggle);
-
 //popupCloseButton.addEventListener('click', popupclose);
 
 
@@ -34,9 +30,6 @@ function popupOpen (evt) {
 function popupClose (evt) {
       popup.classList.remove('popup_opened');
 }
-
-
-
 
 
 function formSubmitHandler (evt) {
