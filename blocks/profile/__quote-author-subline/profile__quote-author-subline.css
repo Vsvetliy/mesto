@@ -1,11 +1,14 @@
 .profile__quote-author-subline{
     color: #ffffff;
     font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 22px;
-margin: 0;
-
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    max-width: 350px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 @media (min-width: 300px) and (max-width: 629px) {
  
