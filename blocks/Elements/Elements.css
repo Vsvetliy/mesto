@@ -11,7 +11,7 @@
     .elements {
         
         grid-template-columns: 282px 282px;
-        grid-row-gap: 21px;
+        
         justify-content: space-evenly;
     }
     
@@ -20,7 +20,7 @@
     .elements {
         
         grid-template-columns:  282px;
-        grid-row-gap: 21px;
+        
         justify-content: space-evenly;
     }
     

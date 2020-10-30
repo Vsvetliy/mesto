@@ -5,8 +5,10 @@
     margin-top: 43px;
     align-items: center;
     background-color: #000000;
-  width: 358px;
+    width: 358px;
     height: 50.15px;
+    text-decoration-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 .popup__submit-button:hover {
     background: rgba(0, 0, 0, 0.8);

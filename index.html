@@ -6,6 +6,7 @@
   <title>Mesto: интересные места России</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="body">
     <div class="page">
               
@@ -23,7 +24,9 @@
                 <h1 class="profile__quote-author">Жак-Ив Кусто</h1>
                 <p class="profile__quote-author-subline">Исследователь океана</p>
               </div>
-              <img src="./images/edit_button.svg" alt="Кнопка редактировать" class="profile__edit-button">
+             
+              <button type = "button" name = "edit_button" class="profile__edit-button">
+              </button>
             </div>
           </div>
           <button type = "button" name = "add_button" class="profile__add-button">
@@ -91,16 +94,17 @@
             <input type="text" name = "job" class="popup__input popup__input_job">
             
             
-            <button type = "button" name = "button1" class="popup__submit-button">
-              <p class="popup__submit-button-text">Сохранить</p>
+            <button type = "submit" name = "submit-button" class="popup__submit-button">
+              Сохранить
             </button>
 
           </form>
         </div>
         <footer class="footer">
-         <p class="footer__text">&copy2020 Mesto Russia</p>
+         <p class="footer__text">&copy;2020 Mesto Russia</p>
         </footer>
       </div>
-      <script src="./script/script.js"></script>
+      <script src="./script/script.js">
+      </script>
 </body>
 </html>
