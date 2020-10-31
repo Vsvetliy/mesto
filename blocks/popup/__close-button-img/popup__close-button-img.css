@@ -1,0 +1,11 @@
+.popup__close-button-img {
+    color: black;
+    
+}
+@media (min-width: 300px) and (max-width: 629px) {
+    
+    .popup__close-button-img {
+        max-width: 30px;
+       max-height: 30px;
+    }
+}

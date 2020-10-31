@@ -1,0 +1,23 @@
+.popup__close-button {
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.0);
+}
+.popup__close-button:hover{
+    cursor: pointer;
+}
+@media (min-width: 300px) and (max-width: 629px) {
+    
+     .popup__close-button {
+       max-width: 30px;
+       max-height: 30px;
+        top: -35px;
+        right: -5px;
+        
+    }
+    
+}

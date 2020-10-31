@@ -1,0 +1,21 @@
+.profile__quote-author {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 56px;
+    margin: 0;
+    max-width: 350px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+@media (min-width: 300px) and (max-width: 629px) {
+ 
+.profile__quote-author {
+    margin-top: 22px;
+    font-size: 27px;
+    text-align: center;
+}
+}
