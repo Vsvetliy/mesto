@@ -14,7 +14,8 @@
           <img src="./images/logo.svg" alt="логотип" class="header__logo">
           
         </header>
-        <main class="profile">
+        <main>
+          <section class="profile">
           
           <div class="profile__info">
             <img src="./images/avatar.png" alt="аватар" class="profile__avatar">
@@ -32,8 +33,8 @@
           <button type = "button" name = "add_button" class="profile__add-button">
             <img src="./images/vector.svg" alt="Кнопка добавить" class="profile__add-button-img">
           </button>
-        </main>
-        <section class="elements">
+            </section>
+           <section class="elements">
           <article class="element">
             <img src="./images/moscow_river_during_winter_time.jpg" alt="Корабль на реке" class="element__images"> 
             <div class="element__text-box">
@@ -83,15 +84,19 @@
               </button>
             </div>
           </article>
-        </section>
+           </section>
+        </main>
+        <footer class="footer">
+         <p class="footer__text">&copy;2020 Mesto Russia</p>
+        </footer>
         <div class="popup">
           <form class="popup__container" name="popup__container">
             <button type="button" class="popup__close-button"><img src="./images/close_icon.svg" alt="закрыть" class="popup__close-button-img"></button>
             
             <h2 class="popup__container-title">Редактировать профиль</h2>
-            <input type="text" name = "name" class="popup__input popup__input_author">
+            <input type="text" name = "name" class="popup__input popup__input_name_author">
             
-            <input type="text" name = "job" class="popup__input popup__input_job">
+            <input type="text" name = "job" class="popup__input popup__input_name_job">
                        
             <button type = "submit" name = "submit-button" class="popup__submit-button">
               Сохранить
@@ -99,9 +104,6 @@
 
           </form>
         </div>
-        <footer class="footer">
-         <p class="footer__text">&copy;2020 Mesto Russia</p>
-        </footer>
       </div>
       <script src="./script/script.js">
       </script>

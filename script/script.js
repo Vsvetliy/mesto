@@ -5,25 +5,15 @@ let page = document.querySelector('.page');
 let seveButton = document.querySelector('.popup__submit-button')
 let songsContainer = document.querySelector('.profile__author-edit');
 let formElement = document.querySelector('.popup__container') 
-let nameInput = formElement.querySelector('.popup__input_author');
-let jobInput = formElement.querySelector('.popup__input_job');
+let nameInput = formElement.querySelector('.popup__input_name_author');
+let jobInput = formElement.querySelector('.popup__input_name_job');
 let nameProfile = document.querySelector('.profile__quote-author');
 let jobProfile = document.querySelector('.profile__quote-author-subline');
-//let popupToggle = function (event) {
-    //event.preventDefault();
-   //popup.classList.toggle('popup_opened');
-//}
-//popupOpenButton.addEventListener('click', popupToggle);
-//popupCloseButton.addEventListener('click', popupclose);
-
 
 function popupOpen (evt) {
     popup.classList.add('popup_opened');
-    console.log(1)
     nameInput.value = nameProfile.textContent;
-    console.log(nameProfile.textContent)
     jobInput.value = jobProfile.textContent;
-    console.log(jobProfile.textContent)
 }
 
 
@@ -36,9 +26,10 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    popup.classList.remove('popup_opened');
+    popupClose (evt)
+    
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
 popupCloseButton.addEventListener('click', popupClose); 
-popupOpenButton.addEventListener('click', popupOpen); 
+popupOpenButton.addEventListener('click', popupOpen) 
