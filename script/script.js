@@ -1,4 +1,5 @@
 let popup = document.querySelector('.popup');
+let popup2 = document.querySelector('.popup2');
 let popupOpenButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = popup.querySelector('.popup__close-button');
 let page = document.querySelector('.page');
@@ -84,14 +85,18 @@ const initialCards = [
 
 
 
+let profileaddbutton = document.querySelector('.profile__add-button');
 
 
 
+function popupOpen2 (evt) {
+    popup2.classList.add('popup_opened');
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
+}
+profileaddbutton.addEventListener('click', popupOpen2) 
 
-
-
-
-
+//profile__add-button
 
 
 function popupOpen (evt) {
