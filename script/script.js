@@ -1,7 +1,9 @@
 let popup = document.querySelector('.popup');
-let popup2 = document.querySelector('.popup2');
+let popupAddForm = document.querySelector('.popup__add-form');
 let popupOpenButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = popup.querySelector('.popup__close-button');
+let popupCloseButton2 = popupAddForm.querySelector('.popup__close-button');
+let addButton = document.querySelector('.profile__add-button');
 let page = document.querySelector('.page');
 let seveButton = document.querySelector('.popup__submit-button')
 let songsContainer = document.querySelector('.profile__author-edit');
@@ -10,6 +12,10 @@ let nameInput = formElement.querySelector('.popup__input_name_author');
 let jobInput = formElement.querySelector('.popup__input_name_job');
 let nameProfile = document.querySelector('.profile__quote-author');
 let jobProfile = document.querySelector('.profile__quote-author-subline');
+let popupAddButton = document.querySelector('.popup__add-button');
+let titleInput = formElement.querySelector('.popup__input_title');
+let linkInput = formElement.querySelector('.popup__input_link');
+let elements = document.querySelector('.elements');
 const initialCards = [
     {
       name: 'Архыз',
@@ -37,44 +43,64 @@ const initialCards = [
     }
   ]; 
 
-  //element-template
-  let  elements = document.querySelector('.elements');
-  
+ 
+ 
   let elementTemplate = document.querySelector('.element-template').content;
 
+function render() {
+  //функция пройди по массиву и выполни renderItem
+  initialCards.forEach(renderItem);
+}
 
-  initialCards.forEach(function(element){
-    const templateCards = elementTemplate.cloneNode(true);
+function renderItem(element) {
+    let templateCards = elementTemplate.cloneNode(true); //клонируем шаблон
+    templateCards.querySelector('.element__text').textContent = element.name; 
+    templateCards.querySelector('.element__images').src = element.link;
+    elements.append(templateCards);  //вставляем в elements наш шаблон.
+    
+  }
+//console.log(templateCards);
 
-    elementTemplate.querySelector('.element__text').textContent = element.name;
-    elementTemplate.querySelector('.element__images').src = element.link;
-   // elementTemplate.querySelector('.element__text').textContent = element.name;
+
+  function formAddElement (evt) {
+    renderItem(titleInput.value, linkInput.value)
+    //const templateCards = elementTemplate.cloneNode(true);
+    
   
-    elements.append(templateCards)
+    
+  //elements.append(templateCards)
 
 
-  })
-
-
-
-
-  //const elements = document.querySelector('.elements')
- // const templateElement = initialCards.reduce((result, name, link) => (
-  //    result + `
-  //    <article class="element">
-   //   <img src="./images/ural.jpg" alt="Уральские горы" class="element__images"> 
-   //   <div class="element__text-box">
-    //    <h2 class="element__text">${name}</h2>
-    //    <button type = "button" name = "like_button" class="element__like-button">
-    //    </button>
-    //  </div>
-  //  </article>
- //     `
- // ))
   
+   popupClose (evt)
+   
+}
+
+
+
+
+
 //  elements.innerHTML = templateElement;
-  
-  
+//function renderItem(element) {
+//	const htmlElement = elementTemplate.cloneNode(true);
+//	htmlElement.querySelector('.item__text').innerText = text;
+ // elements.append(templateCards)
+//	setListeners(htmlElement);
+	//list.appendChild(htmlElement);
+//}
+
+//function setListeners(element) {
+	//element.querySelector('.delete').addEventListener('click', handleDelete);
+	//element.querySelector('.edit').addEventListener('click', handleEdit);
+	//element.querySelector('.duplicate').addEventListener('click', handleDuplicate);
+//}
+
+
+
+//function handleDelete(evt) {
+//	evt.target.closest('.list__item').remove();
+//	resetEditMode();
+//}
 
 
 
@@ -82,7 +108,7 @@ const initialCards = [
 
 
 
-
+render()
 
 
 let profileaddbutton = document.querySelector('.profile__add-button');
@@ -90,13 +116,11 @@ let profileaddbutton = document.querySelector('.profile__add-button');
 
 
 function popupOpen2 (evt) {
-    popup2.classList.add('popup_opened');
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
+  popupAddForm.classList.add('popup_opened');
+    
 }
 profileaddbutton.addEventListener('click', popupOpen2) 
 
-//profile__add-button
 
 
 function popupOpen (evt) {
@@ -107,7 +131,9 @@ function popupOpen (evt) {
 
 
 function popupClose (evt) {
+  popupAddForm.classList.remove('popup_opened');
       popup.classList.remove('popup_opened');
+      
 }
 
 
@@ -120,5 +146,7 @@ function formSubmitHandler (evt) {
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
+//popupAddButton.addEventListener('submit', formAddElement);
 popupCloseButton.addEventListener('click', popupClose); 
+popupCloseButton2.addEventListener('click', popupClose); 
 popupOpenButton.addEventListener('click', popupOpen) 

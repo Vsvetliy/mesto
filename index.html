@@ -98,13 +98,13 @@
             
             <input type="text" name = "job" class="popup__input popup__input_name_job">
                        
-            <button type = "submit" name = "submit-button" class="popup__submit-button">
+            <button type = "button" name = "submit-button" class="popup__submit-button">
               Сохранить
             </button>
 
           </form>
         </div>
-        <div class="popup2">
+        <div class="popup__add-form">
           <form class="popup__container" name="popup__container">
             <button type="button" class="popup__close-button"><img src="./images/close_icon.svg" alt="закрыть" class="popup__close-button-img"></button>
             
@@ -113,7 +113,7 @@
             
             <input type="text" name = "link" placeholder="Ссылка на картинку" class="popup__input popup__input_link">
                        
-            <button type = "submit" name = "submit-button" class="popup__submit-button">
+            <button type = "button" name = "add-button" class="popup__add-button">
               Создать
             </button>
 
@@ -122,6 +122,7 @@
       </div>
       <template class="element-template">
         <article class="element">
+          <button type="button" class="element__delete-button"><img src="./images/delete_button.svg" alt="удалить" class="element__delete-button-img"></button>
           <img src="./images/ural.jpg" alt="Уральские горы" class="element__images"> 
           <div class="element__text-box">
             <h2 class="element__text">Уральские горы</h2>
