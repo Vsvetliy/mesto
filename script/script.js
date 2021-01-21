@@ -13,8 +13,8 @@ let jobInput = formElement.querySelector('.popup__input_name_job');
 let nameProfile = document.querySelector('.profile__quote-author');
 let jobProfile = document.querySelector('.profile__quote-author-subline');
 let popupAddButton = document.querySelector('.popup__add-button');
-let titleInput = formElement.querySelector('.popup__input_title');
-let linkInput = formElement.querySelector('.popup__input_link');
+let titleInput = document.querySelector('.popup__input_title');
+let linkInput = document.querySelector('.popup__input_link');
 let elements = document.querySelector('.elements');
 const initialCards = [
     {
@@ -54,29 +54,33 @@ function render() {
 
 function renderItem(element) {
     let templateCards = elementTemplate.cloneNode(true); //клонируем шаблон
+    let elementDeleteButton = templateCards.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+
     templateCards.querySelector('.element__text').textContent = element.name; 
     templateCards.querySelector('.element__images').src = element.link;
+    
     elements.append(templateCards);  //вставляем в elements наш шаблон.
     
   }
-//console.log(templateCards);
+
 
 
   function formAddElement (evt) {
-    renderItem(titleInput.value, linkInput.value)
-    //const templateCards = elementTemplate.cloneNode(true);
-    
-  
-    
-  //elements.append(templateCards)
+   
+    let templateCards = elementTemplate.cloneNode(true); //клонируем шаблон
+    let elementDeleteButton = templateCards.querySelector('.element__delete-button').addEventListener('click', handleDelete);
 
-
-  
-   popupClose (evt)
+    templateCards.querySelector('.element__text').textContent = titleInput.value; 
+    templateCards.querySelector('.element__images').src = linkInput.value;
+    elements.prepend(templateCards);  //вставляем в elements наш шаблон.
+   popupClose ()
    
 }
 
+function handleDelete(evt) {
+	evt.target.closest('.element').remove();
 
+}
 
 
 
@@ -97,10 +101,7 @@ function renderItem(element) {
 
 
 
-//function handleDelete(evt) {
-//	evt.target.closest('.list__item').remove();
-//	resetEditMode();
-//}
+
 
 
 
@@ -146,7 +147,7 @@ function formSubmitHandler (evt) {
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
-//popupAddButton.addEventListener('submit', formAddElement);
+popupAddButton.addEventListener('click', formAddElement);
 popupCloseButton.addEventListener('click', popupClose); 
 popupCloseButton2.addEventListener('click', popupClose); 
 popupOpenButton.addEventListener('click', popupOpen) 
