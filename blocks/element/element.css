@@ -3,7 +3,7 @@
 @import url(../element/__text/element__text.css);
 @import url(../element/__group/element__group.css);
 @import url(../element/__like-button/element__like-button.css);
-
+@import url(../element/__like-button/_activ/element__like-button_activ.css);
 .element {
     background-color: #ffffff;
     max-width: 282px;
