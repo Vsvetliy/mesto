@@ -16,6 +16,9 @@ let popupAddButton = document.querySelector('.popup__add-button');
 let titleInput = document.querySelector('.popup__input_title');
 let linkInput = document.querySelector('.popup__input_link');
 let elements = document.querySelector('.elements');
+
+
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -43,7 +46,7 @@ const initialCards = [
     }
   ]; 
 
- 
+  
  
   let elementTemplate = document.querySelector('.element-template').content;
 
@@ -55,12 +58,15 @@ function render() {
 function renderItem(element) {
     let templateCards = elementTemplate.cloneNode(true); //клонируем шаблон
     let elementDeleteButton = templateCards.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+    let elementlikebutton = templateCards.querySelector('.element__like-button').addEventListener('click', function (evt) {
+      evt.target.classList.toggle('element__like-button_activ');
+    });
 
     templateCards.querySelector('.element__text').textContent = element.name; 
     templateCards.querySelector('.element__images').src = element.link;
     
     elements.append(templateCards);  //вставляем в elements наш шаблон.
-    
+    console.log(elementlikebutton)
   }
 
 
@@ -69,6 +75,7 @@ function renderItem(element) {
    
     let templateCards = elementTemplate.cloneNode(true); //клонируем шаблон
     let elementDeleteButton = templateCards.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+    let elementlikebutton = templateCards.querySelector('.element__like-button').addEventListener('click', handleLike);
 
     templateCards.querySelector('.element__text').textContent = titleInput.value; 
     templateCards.querySelector('.element__images').src = linkInput.value;
@@ -101,7 +108,11 @@ function handleDelete(evt) {
 
 
 
-
+//function handleLike(evt) {
+  //element.target.closest('.element__like-button').classList.add('element__like-button_activ');
+ //elementlikebutton.classList.add('element__like-button_activ');
+    
+//}
 
 
 
