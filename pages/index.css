@@ -9,10 +9,9 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/footer/footer.css);
-@import url(../blocks/popup-img/popup-img.css);
-@import url(../blocks/popup-add-form/popup-add-form.css);
+@import url(../blocks/popup_add-form/popup_add-form.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup-img/_opened/popup-img_opened.css);
+@import url(../blocks/popup/_img-opened/popup_img-opened.css);
 
 
 
