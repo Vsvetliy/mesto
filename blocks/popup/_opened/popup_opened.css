@@ -1,5 +1,13 @@
+@keyframes showNav {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+
+
 .popup_opened {
     
     display: block;
-    
+    animation: showNav 250ms ease-in-out both;
+
 }

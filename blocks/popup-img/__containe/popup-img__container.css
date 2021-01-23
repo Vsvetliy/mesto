@@ -1,0 +1,25 @@
+.popup-img__container{
+    max-width: 75vw;
+    max-height: 75vh;
+    position: relative;
+    margin: auto;
+    margin-top: 10em;
+    max-width: 430px;
+    
+    
+    border-radius: 10px;
+    padding: 0;
+    
+}
+@media (min-width: 300px) and (max-width: 629px) {
+    .popup-img__container {
+       display: flex;
+       flex-direction: column;
+       
+       max-width: 280px;
+       
+       align-items: center;
+   }
+   
+   
+   }

@@ -3,15 +3,17 @@
 @import url(../popup/__close-button-img/popup__close-button-img.css);
 @import url(../popup/__container-title/popup__container-title.css);
 @import url(../popup/__input/popup__input.css);
-
-
 @import url(../popup/__submit-button/popup__submit-button.css);
 @import url(../popup/__submit-button-text/popup__submit-button-text.css);
 
 
+@keyframes showNav {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+  
 
-
-
+ 
 .popup {
     position: fixed;
     display: none;
@@ -21,40 +23,6 @@
     min-height: 100%;
     background: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 25px;
+    animation: showNav 250ms ease-in-out both;
 }
-.popup__add-form {
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 25px;
-}
-.popup__add-button{
-        padding: 0;
-        margin-left: 36px;
-        margin-right: 36px;
-        margin-top: 43px;
-        align-items: center;
-        background-color: #000000;
-        width: 358px;
-        height: 50.15px;
-        text-decoration-color: rgb(255, 255, 255);
-        color: rgb(255, 255, 255);
-    }
-    .popup__add-button:hover {
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 2px;
-        cursor: pointer;
-    }
-    @media (min-width: 300px) and (max-width: 629px) {
-     
-    .popup__add-button{
-      margin-left: 0;
-      margin-right: 0;
-      width: 238px;
-      align-self: center;
-    }
-    }
+

@@ -1,36 +1,22 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
-
 @import url(../blocks/body/body.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/_opened/popup_opened.css);
 
 @import url(../blocks/header/header.css);
-
 @import url(../blocks/page/page.css);
-
 @import url(../blocks/profile/profile.css);
-
 @import url(../blocks/elements/elements.css);
-
 @import url(../blocks/element/element.css);
-
-
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/popup-img/popup-img.css);
+@import url(../blocks/popup-add-form/popup-add-form.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup-img/_opened/popup-img_opened.css);
 
-.element__delete-button{
-position: absolute;
-right: 15px;
-top: 18px;
-padding: 0;
-margin: 0;
-border: none;
-outline: 2px solid rgb(255, 0, 242);
-border: none;
-background: rgba(255, 255, 255, 0.0);
-}
-.element__delete-button:hover{
-    cursor: pointer;
-    opacity: 0.6;
-}
+
+
+
+
+
 
