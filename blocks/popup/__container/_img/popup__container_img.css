@@ -1,16 +1,15 @@
-.popup-img__container{
-    max-width: 75vw;
-    max-height: 75vh;
+.popup__container_img{
+   
     position: relative;
     margin: auto;
     margin-top: 10em;
     max-width: 430px;
     border-radius: 10px;
     padding: 0;
-    
+   background: none;
 }
 @media (min-width: 300px) and (max-width: 629px) {
-    .popup-img__container {
+    .popup__container_img{
        display: flex;
        flex-direction: column;
        

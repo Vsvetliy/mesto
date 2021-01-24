@@ -1,4 +1,4 @@
-.popup-add-form__button{
+.popup__add-form-button{
     padding: 0;
     margin-left: 36px;
     margin-right: 36px;
@@ -10,14 +10,14 @@
     text-decoration-color: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }
-.popup-add-form__button:hover {
+.popup__add-form-button:hover {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 2px;
     cursor: pointer;
 }
 @media (min-width: 300px) and (max-width: 629px) {
  
-.popup-add-form__button{
+.popup__add-form-button{
   margin-left: 0;
   margin-right: 0;
   width: 238px;

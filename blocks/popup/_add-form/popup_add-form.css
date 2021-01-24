@@ -1,6 +1,6 @@
-@import url(../popup-add-form/__button/popup-add-form__button.css);
 
-.popup-add-form {
+
+.popup_add-form {
     position: fixed;
     display: none;
     top: 0;
