@@ -50,7 +50,6 @@ const initialCards = [
   ]; 
 
   
- 
   const elementTemplate = document.querySelector('.element-template').content;
 
 function render() {
