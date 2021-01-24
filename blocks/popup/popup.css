@@ -13,15 +13,6 @@
 @import url(../popup/__container/_img/popup__container_img.css);
 @import url(../popup/__add-form-button/popup__add-form-button.css);
 
-@import url(../popup/__images/popup__images.css);
-@import url(../popup/__text/popup__text.css);
-@import url(../popup/_add-form/popup_add-form.css);
-@import url(../popup/_img/popup-img.css);
-@import url(../popup/__container/_img/popup__container_img.css);
-@import url(../popup/__add-form-button/popup__add-form-button.css);
-
-
-
 @keyframes showNav {
     from {opacity: 1;}
     to {opacity: 0;}
