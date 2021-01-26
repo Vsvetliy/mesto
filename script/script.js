@@ -116,7 +116,6 @@ addButton.addEventListener('click', () => openPopup(popupAddForm));
 popupAddFormClose.addEventListener('click', () => closePopup(popupAddForm));
 popupImgClose.addEventListener('click', () => closePopup(popupImg));
 popupOpenButton.addEventListener('click', function (evt) {
-  //popupProfile.classList.add('popup_opened');
  openPopup (popupProfile);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;

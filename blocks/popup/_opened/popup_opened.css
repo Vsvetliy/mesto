@@ -1,18 +1,6 @@
-@keyframes showNav {
-    from {opacity: 1;
-      visibility: visible;
-    }
-    to {opacity: 0;
-      visibility: hidden;
-    }
-  }
-  
-
 
 .popup_opened {
   visibility: visible;
   opacity: 1;
-    /*display: block;*/
-    /*animation: showNav 250ms ease-in-out both;*/
-
+    
 }
