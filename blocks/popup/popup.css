@@ -12,9 +12,13 @@
 @import url(../popup/_img/popup-img.css);
 @import url(../popup/__container/_img/popup__container_img.css);
 @import url(../popup/__add-form-button/popup__add-form-button.css);
+@import url(../popup/__overlay/popup__overlay.css);
+@import url(../popup/__submit-button/_disabled/popup__submit-button_disabled.css);
+@import url(../popup/__input/_active/popup__input-error_active.css);
 
 .popup {
     visibility: hidden;
+    z-index: 1;
     opacity: 0;
     position: fixed;
     top: 0;

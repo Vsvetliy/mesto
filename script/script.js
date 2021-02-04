@@ -92,12 +92,21 @@ function handleDelete(evt) {
 }
 
 function openPopup (popup) {
-  popup.classList.add('popup_opened');
+  const handleEsc = (event) => {
+    if (event.keyCode === 27) {
+      closePopup (popup);
+      
+      document.removeEventListener("keyup", handleEsc);
+    }
+  };
   
+     popup.classList.add('popup_opened');
+     document.addEventListener("keyup", handleEsc);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  
 }
 
 function handleProfileFormSubmit (evt) {
@@ -120,3 +129,6 @@ popupOpenButton.addEventListener('click', function (evt) {
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 });
+popupProfile.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupProfile));
+popupImg.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupImg));
+popupAddForm.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupAddForm));
