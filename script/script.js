@@ -1,9 +1,9 @@
-const popup = document.querySelector('.popup');
+//const popup = document.querySelector('.popup');
 const popupAddForm = document.querySelector('.popup_add-form');
 const popupAddFormClose = popupAddForm.querySelector('.popup__close-button');
 const popupProfile = document.querySelector('.popup_profile');
 const popupOpenButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = popup.querySelector('.popup__close-button');
+const popupCloseButton = popupProfile.querySelector('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
 const page = document.querySelector('.page');
 const seveButton = document.querySelector('.popup__submit-button')
@@ -83,30 +83,40 @@ function createCard(name, link) {
 
 function handleAddtFormSubmit(evt) {
   evt.preventDefault();
-  addElement(titleInput.value, linkInput.value)
-  closePopup (popupAddForm)
+  addElement(titleInput.value, linkInput.value);
+  closePopup (popupAddForm);
+  titleInput.value = '';
+  linkInput.value = '';
 }
 
 function handleDelete(evt) {
 	evt.target.closest('.element').remove();
 }
 
+
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
+   
+  }
+}
+
+
+
+
 function openPopup (popup) {
-  const handleEsc = (event) => {
-    if (event.keyCode === 27) {
-      closePopup (popup);
-      
-      document.removeEventListener("keyup", handleEsc);
-    }
-  };
+  
   
      popup.classList.add('popup_opened');
-     document.addEventListener("keyup", handleEsc);
+     document.addEventListener('keydown', closeByEscape);
+
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
-  
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 function handleProfileFormSubmit (evt) {
