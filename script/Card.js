@@ -7,11 +7,8 @@ export default class Card {
     createCard() {
         const elementTemplate = document.querySelector(this._cardSelector).content;
         const templateCard = elementTemplate.cloneNode(true); 
-        
-        
         const elementText = templateCard.querySelector('.element__text');
         const elementImages = templateCard.querySelector('.element__images');
-
 
         elementText.textContent = this._name; 
         elementImages.src = this._link;
@@ -38,7 +35,6 @@ export default class Card {
         evt.target.closest('.element').remove();
     }
     
-
     _addImgClickEventListener(elementImages) {
         const popupImg = document.querySelector('.popup_img');
         const popupImgImages = popupImg.querySelector('.popup__images');

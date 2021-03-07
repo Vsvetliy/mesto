@@ -1,5 +1,5 @@
 import Card from './Card.js';
-
+import FormValidator from './FormValidator.js';
 
 const popupAddForm = document.querySelector('.popup_add-form');
 const popupAddFormClose = popupAddForm.querySelector('.popup__close-button');
@@ -21,9 +21,6 @@ const linkInput = document.querySelector('.popup__input_link');
 const elements = document.querySelector('.elements');
 const popupImg = document.querySelector('.popup_img');
 const popupImgClose = popupImg.querySelector('.popup__close-button');
-
-
-
 const initialCards = [
     {
       name: 'Архыз',
@@ -91,9 +88,6 @@ function handleAddtFormSubmit(evt) {
   linkInput.value = '';
 }
 
-
-
-
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened')
@@ -102,14 +96,10 @@ function closeByEscape(evt) {
   }
 }
 
-
-
-
 function openPopup (popup) {
   
-  
-     popup.classList.add('popup_opened');
-     document.addEventListener('keydown', closeByEscape);
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 
 }
 
@@ -141,3 +131,19 @@ popupOpenButton.addEventListener('click', function (evt) {
 popupProfile.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupProfile));
 popupImg.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupImg));
 popupAddForm.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupAddForm));
+enableValidation({
+  formSelector: '.popup__validatable',
+  popupInputSelector: '.popup__input',
+  submitButtonSelector: 'button[type = "submit"]',
+  submitButtonDisabledClass: 'popup__submit-button_disabled',
+  inputErrorActiveClass: 'popup__input-error_active',
+  inputTypeActiveClass: 'popup__input_type_error'
+})
+
+function enableValidation(options) {
+  const formList = Array.from(document.querySelectorAll(options.formSelector));
+  formList.forEach((formElement) => {
+      const validator = new FormValidator(options, formElement);
+      validator.enableValidation();
+  }); 
+}
