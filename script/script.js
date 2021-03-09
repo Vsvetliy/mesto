@@ -1,16 +1,17 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-
+import { openPopup, closePopup, initialCards } from './utils.js';
 const popupAddForm = document.querySelector('.popup_add-form');
+const popupAddFormElement = popupAddForm.querySelector('.popup__validatable');
+
 const popupAddFormClose = popupAddForm.querySelector('.popup__close-button');
 const popupProfile = document.querySelector('.popup_profile');
+const popupProfileElement = popupProfile.querySelector('.popup__validatable');
+
 const popupOpenButton = document.querySelector('.profile__edit-button');
 const popupCloseButton = popupProfile.querySelector('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
-const page = document.querySelector('.page');
-const seveButton = document.querySelector('.popup__submit-button')
-const songsContainer = document.querySelector('.profile__author-edit');
-const formElement = document.querySelector('.popup__container') 
+const formElement = document.querySelector('.popup__container');
 const nameInput = formElement.querySelector('.popup__input_name_author');
 const jobInput = formElement.querySelector('.popup__input_name_job');
 const nameProfile = document.querySelector('.profile__quote-author');
@@ -21,64 +22,27 @@ const linkInput = document.querySelector('.popup__input_link');
 const elements = document.querySelector('.elements');
 const popupImg = document.querySelector('.popup_img');
 const popupImgClose = popupImg.querySelector('.popup__close-button');
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
+const options = {
+  popupInputSelector: '.popup__input',
+  submitButtonSelector: 'button[type = "submit"]',
+  submitButtonDisabledClass: 'popup__submit-button_disabled',
+  inputErrorActiveClass: 'popup__input-error_active',
+  inputTypeActiveClass: 'popup__input_type_error'
+};
+const popupAddFormValidator =  new FormValidator(options, popupAddFormElement);
+const popupProfileValidator =  new FormValidator(options, popupProfileElement);
+
+
  
 
 function render() {
-  initialCards.forEach(item => addElement(item.name, item.link));
+  initialCards.forEach(item => addElement(item));
 }
 
-function addElement(name, link) {
-  const card = new Card(name, link, '.element-template');
+function addElement(data) {
+  const card = new Card(data, '.element-template');
   elements.prepend(card.createCard());
 }
-
-// function createCard(name, link) {
-//   const templateCard = elementTemplate.cloneNode(true); 
-//   const elementDeleteButton = templateCard.querySelector('.element__delete-button');
-//   const elementlikebutton = templateCard.querySelector('.element__like-button');
-//   const elementText = templateCard.querySelector('.element__text');
-//   const elementImages = templateCard.querySelector('.element__images');
-
-//     elementText.textContent = name; 
-//     elementImages.src = link;
-//     elementImages.addEventListener('click', function (evt) {
-//       popupImgImages.src = link;
-//       popupImgText.textContent = name;
-//       openPopup(popupImg)
-//     });
-//     elementDeleteButton.addEventListener('click', handleDelete);
-//     elementlikebutton.addEventListener('click', function (evt) {
-//       evt.target.classList.toggle('element__like-button_activ');
-//     });
-    
-//   return templateCard;
-// }
 
 function handleAddtFormSubmit(evt) {
   evt.preventDefault();
@@ -86,26 +50,8 @@ function handleAddtFormSubmit(evt) {
   closePopup (popupAddForm);
   titleInput.value = '';
   linkInput.value = '';
-}
+  popupAddFormValidator.disableSubmit()
 
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened')
-    closePopup(openedPopup);
-   
-  }
-}
-
-function openPopup (popup) {
-  
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEscape);
-
-}
-
-function closePopup (popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeByEscape);
 }
 
 function handleProfileFormSubmit (evt) {
@@ -127,23 +73,14 @@ popupOpenButton.addEventListener('click', function (evt) {
  openPopup (popupProfile);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
+  popupProfileValidator.enableSubmit()
 });
 popupProfile.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupProfile));
 popupImg.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupImg));
 popupAddForm.querySelector('.popup__overlay').addEventListener('click', () => closePopup(popupAddForm));
-enableValidation({
-  formSelector: '.popup__validatable',
-  popupInputSelector: '.popup__input',
-  submitButtonSelector: 'button[type = "submit"]',
-  submitButtonDisabledClass: 'popup__submit-button_disabled',
-  inputErrorActiveClass: 'popup__input-error_active',
-  inputTypeActiveClass: 'popup__input_type_error'
-})
+enableValidation()
 
-function enableValidation(options) {
-  const formList = Array.from(document.querySelectorAll(options.formSelector));
-  formList.forEach((formElement) => {
-      const validator = new FormValidator(options, formElement);
-      validator.enableValidation();
-  }); 
-}
+function enableValidation() {
+  popupAddFormValidator.enableValidation();
+  popupProfileValidator.enableValidation();
+}; 
