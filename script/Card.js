@@ -1,4 +1,4 @@
-import openPopup from './utils.js';
+import Popup from './Popup.js';
 export default class Card {
 	constructor(data, cardSelector) {
         this._data = data;
@@ -12,6 +12,7 @@ export default class Card {
         this._popupImg = document.querySelector('.popup_img');
         this._popupImgImages = this._popupImg.querySelector('.popup__images');
         this._popupImgText = this._popupImg.querySelector('.popup__text');
+        this._popupImg2 = new Popup('.popup_img')
 	}
     createCard() {
         this._elementText.textContent = this._data.name; 
@@ -43,7 +44,7 @@ export default class Card {
         this._elementImages.addEventListener('click', () =>  {
             this._popupImgImages.src = this._data.link;
             this._popupImgText.textContent = this._data.name;
-            openPopup(this._popupImg);
+            this._popupImg2.open(this._popupImg);
         });
     }
     
