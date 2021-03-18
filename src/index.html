@@ -4,21 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto: интересные места России</title>
-  <link rel="stylesheet" href="./pages/index.css">
-</head>
+ </head>
 
 <body class="body">
     <div class="page">
               
         <header class="header">
-          <img src="./images/logo.svg" alt="логотип" class="header__logo">
+          <img src="<%=require('./images/logo.svg')%>" alt="логотип" class="header__logo">
           
         </header>
         <main>
           <section class="profile">
           
           <div class="profile__info">
-            <img src="./images/avatar.png" alt="аватар" class="profile__avatar">
+            <img src="<%=require('./images/avatar.png')%>" alt="аватар" class="profile__avatar">
             
             <div class="profile__author-edit">
               <div class="profile__author">
@@ -31,7 +30,7 @@
             </div>
           </div>
           <button type = "button" name = "add_button" class="profile__add-button">
-            <img src="./images/vector.svg" alt="Кнопка добавить" class="profile__add-button-img">
+            <img src="<%=require('./images/vector.svg')%>" alt="Кнопка добавить" class="profile__add-button-img">
           </button>
             </section>
            <section class="elements">
@@ -47,7 +46,7 @@
         <div class="popup popup_profile">
           
           <form novalidate  class="popup__container popup__validatable" name="popup__container">
-            <button type="button" class="popup__close-button"><img src="./images/close_icon.svg" alt="закрыть" class="popup__close-button-img"></button>
+            <button type="button" class="popup__close-button"><img src="<%=require('./images/close_icon.svg')%>" alt="закрыть" class="popup__close-button-img"></button>
             
             <h2 class="popup__container-title">Редактировать профиль</h2>
             <input type="text" name = "name" id="name-input" required minlength="2" maxlength="40" class="popup__input popup__input_name_author">
@@ -65,8 +64,8 @@
         <div class="popup popup_img">
           <div class="popup__overlay"></div>
           <div class="popup__container-img" name="popup__container-img">
-            <button type="button" class="popup__close-button"><img src="./images/close_icon.svg" alt="закрыть" class="popup__close-button-img"></button>
-            <img src="./images/ural.jpg" alt="Уральские горы" class="popup__images">
+            <button type="button" class="popup__close-button"><img src="<%=require('./images/close_icon.svg')%>" alt="закрыть" class="popup__close-button-img"></button>
+            <img src="<%=require('./images/ural.jpg')%>" alt="Уральские горы" class="popup__images">
             <h3 class="popup__text">Уральские горы</h3>
 
           </div>
@@ -75,7 +74,7 @@
         <div class="popup popup_add-form">
           <div class="popup__overlay"></div>
           <form novalidate  class="popup__container popup__validatable" name="popup__container">
-            <button type="button" class="popup__close-button"><img src="./images/close_icon.svg" alt="закрыть" class="popup__close-button-img"></button>
+            <button type="button" class="popup__close-button"><img src="<%=require('./images/close_icon.svg')%>" alt="закрыть" class="popup__close-button-img"></button>
             
             <h2 class="popup__container-title">Новое место</h2>
             <input type="text" name = "title" id="title-input" required minlength="2" maxlength="30" placeholder="Название" class="popup__input popup__input_title">
@@ -92,8 +91,8 @@
       </div>
       <template class="element-template">
         <article class="element">
-          <button type="button" class="element__delete-button"><img src="./images/delete_button.svg" alt="удалить" class="element__delete-button-img"></button>
-          <img src="./images/ural.jpg" alt="Уральские горы" class="element__images"> 
+          <button type="button" class="element__delete-button"><img src="<%=require('./images/delete_button.svg')%>" alt="удалить" class="element__delete-button-img"></button>
+          <img src="<%=require('./images/ural.jpg')%>" alt="Уральские горы" class="element__images"> 
           <div class="element__text-box">
             <h2 class="element__text">Уральские горы</h2>
             <button type = "button" name = "like_button" class="element__like-button">
@@ -101,8 +100,6 @@
           </div>
         </article>
       </template>
-      <script type="module"  src="./script/script.js">
-      </script>
-      
+    
 </body>
 </html>

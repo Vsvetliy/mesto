@@ -1,10 +1,12 @@
-import Card from './Card.js';
-import Section from './Section.js';
-import FormValidator from './FormValidator.js';
-import initialCards from './data.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
-import PopupWithImage from './PopupWithImage.js';
+import './index.css';
+
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import FormValidator from '../components/FormValidator.js';
+import initialCards from '../script/data.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 
 
 const popupAddFormElement = document.querySelector('.popup_add-form').querySelector('.popup__validatable');
@@ -73,9 +75,6 @@ section.render()
 popupProfile.setEventListeners()
 popupAddForm.setEventListeners()
 popupImg.setEventListeners();
-
-
-
 addButton.addEventListener('click', () => popupAddForm.open());
 popupOpenButton.addEventListener('click', function (evt) {
   popupProfile.open ();
