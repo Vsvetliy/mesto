@@ -49,12 +49,12 @@ function handleCardClick(data) {
   popupImg.open(data);
 }
 
-function handleAddFormSubmit(evt) {
+function handleAddFormSubmit(evt, data) {
   evt.preventDefault();
   section.addItem(
     {
-      name: titleInput.value,
-      link: linkInput.value
+      name: data.title,
+      link: data.link
     });
     popupAddForm.close ();
   
@@ -62,11 +62,11 @@ function handleAddFormSubmit(evt) {
 
 }
 
-function handleProfileFormSubmit (evt) {
+function handleProfileFormSubmit (evt, data) {
   evt.preventDefault(); 
   userInfo.setUserInfo({
-    name: nameInput.value,
-    job: jobInput.value
+    name: data.name,
+    job: data.job
   })
   popupProfile.close ()
 }
