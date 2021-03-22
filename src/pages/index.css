@@ -13,5 +13,30 @@
 
 
 
+.like_group {
+    outline: 1px solid rgb(250, 1, 237);
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+    margin-top: 22px;
+    margin-right: 20px;
+
+}
+.like_counter {
+    
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+
+    color: #000000;
+}
+
+
 
 
