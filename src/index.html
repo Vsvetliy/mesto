@@ -17,12 +17,17 @@
           <section class="profile">
           
           <div class="profile__info">
-            <img src="<%=require('./images/avatar.png')%>" alt="аватар" class="profile__avatar">
+
+            <div class="profile__avatar">
+              <img src="" alt="аватар" class="profile__photo-avatar">
+              
+            </div>
+            
             
             <div class="profile__author-edit">
               <div class="profile__author">
-                <h1 class="profile__quote-author">Жак-Ив Кусто</h1>
-                <p class="profile__quote-author-subline">Исследователь океана</p>
+                <h1 class="profile__quote-author"></h1>
+                <p class="profile__quote-author-subline"></p>
               </div>
              
               <button type = "button" name = "edit_button" class="profile__edit-button">
@@ -64,7 +69,7 @@
 <!--  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf-->
 <!--  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf-->
 <!--  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf-->
-<div class="popup popup_confirm popup_opened">
+<div class="popup popup_confirm">
           
   <form class="popup__container" name="popup__container">
     <button type="button" class="popup__close-button"><img src="<%=require('./images/close_icon.svg')%>" alt="закрыть" class="popup__close-button-img"></button>

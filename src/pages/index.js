@@ -1,14 +1,19 @@
 import './index.css';
+import Api from '../components/Api.js';
 
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import FormValidator from '../components/FormValidator.js';
-import initialCards from '../script/data.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 
+const api = new Api();
+const dataInfoUser = api.getInfoUser();
 
+
+
+  
 const popupAddFormElement = document.querySelector('.popup_add-form').querySelector('.popup__validatable');
 const profileElement = document.querySelector('.popup_profile').querySelector('.popup__container');
 const popupProfileElement = document.querySelector('.popup_profile').querySelector('.popup__validatable');
@@ -16,8 +21,6 @@ const popupOpenButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const nameInput = profileElement.querySelector('.popup__input_name_author');
 const jobInput = profileElement.querySelector('.popup__input_name_job');
-const titleInput = document.querySelector('.popup__input_title');
-const linkInput = document.querySelector('.popup__input_link');
 const popupImg = new PopupWithImage('.popup_img');;
 const validateOptions = {
   popupInputSelector: '.popup__input',
@@ -26,19 +29,38 @@ const validateOptions = {
   inputErrorActiveClass: 'popup__input-error_active',
   inputTypeActiveClass: 'popup__input_type_error'
 };
-const sectionOptions = {
-  items: initialCards,
-  renderer: addElement
-}
+let section;
+
+
+api.getCards()
+  .then((data) => {
+    const sectionOptions = {
+      items: data,
+      renderer: addElement
+    }
+    section = new Section(sectionOptions, '.elements')
+    render(section)
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  
+
+
 const popupAddFormValidator =  new FormValidator(validateOptions, popupAddFormElement);
 const popupProfileValidator =  new FormValidator(validateOptions, popupProfileElement);
-const section = new Section(sectionOptions, '.elements')
+
 const popupProfile = new PopupWithForm('.popup_profile', handleProfileFormSubmit)
 const popupAddForm = new PopupWithForm('.popup_add-form', handleAddFormSubmit)
 const userInfo = new UserInfo({
   nameUserSelector: '.profile__quote-author',
   infoUserSelector: '.profile__quote-author-subline',
+  avatarUserSelector: '.profile__photo-avatar',
 })
+
+
+
  
 function addElement(data, container) {
   const card = new Card(data, '.element-template', handleCardClick);
@@ -51,42 +73,83 @@ function handleCardClick(data) {
 
 function handleAddFormSubmit(evt, data) {
   evt.preventDefault();
-  section.addItem(
-    {
-      name: data.title,
-      link: data.link
-    });
+  // section.addItem(
+  //   {
+  //     name: data.title,
+  //     link: data.link
+  //   });
     popupAddForm.close ();
-  
+  api.addNewCard(data)
+  .then((data) => {
+    section.addItem({
+      name: data.name,
+      link: data.link,
+      
+    }) 
+  })
+  .catch((err) => {
+    console.log(err);
+  });
   popupAddFormValidator.disableSubmit()
 
 }
 
 function handleProfileFormSubmit (evt, data) {
   evt.preventDefault(); 
-  userInfo.setUserInfo({
-    name: data.name,
-    job: data.job
-  })
+ 
   popupProfile.close ()
+  api.setInfoUser(data)
+    .then((data) => {
+      userInfo.setUserInfo({
+        name: data.name,
+        job: data.about,
+        avatar: data.avatar
+      }) 
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
-section.render()
-popupProfile.setEventListeners()
-popupAddForm.setEventListeners()
-popupImg.setEventListeners();
-addButton.addEventListener('click', () => popupAddForm.open());
-popupOpenButton.addEventListener('click', function (evt) {
-  popupProfile.open ();
-  const userValues = userInfo.getUserInfo();
-  nameInput.value = userValues.name;
-  jobInput.value = userValues.job;
-  popupProfileValidator.enableSubmit()
-});
 
-enableValidation()
+
+
+
+
+
+
 
 function enableValidation() {
   popupAddFormValidator.enableValidation();
   popupProfileValidator.enableValidation();
 }; 
+
+
+function render(section) {
+  api.getCards()
+  section.render()
+  popupProfile.setEventListeners()
+  popupAddForm.setEventListeners()
+  popupImg.setEventListeners();
+  addButton.addEventListener('click', () => popupAddForm.open());
+  popupOpenButton.addEventListener('click', function (evt) {
+    popupProfile.open ();
+    const userValues = userInfo.getUserInfo();
+    nameInput.value = userValues.name;
+    jobInput.value = userValues.job;
+    popupProfileValidator.enableSubmit()
+  });
+  enableValidation()
+}
+
+dataInfoUser
+.then((data) => {
+  userInfo.setUserInfo({
+    name: data.name,
+    job: data.about,
+    avatar: data.avatar
+  }) 
+})
+.catch((err) => {
+  console.log(err);
+});
