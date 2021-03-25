@@ -1,11 +1,13 @@
 
-
+import PopupWithForm from '../components/PopupWithForm.js';
 export default class UserInfo {
 	constructor(options) {
        
         this._nameUser = document.querySelector(options.nameUserSelector)
         this._infoUser = document.querySelector(options.infoUserSelector)
         this._avatarUser = document.querySelector(options.avatarUserSelector)
+       ;
+
 	}
     getUserInfo() {
       

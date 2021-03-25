@@ -84,4 +84,84 @@ export default class Api {
         
       return jsonaddNewCard  
     }
+    deleteCard(id) {
+        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/' + id, {
+            method: 'DELETE',
+            headers: {
+                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
+                'Content-Type': 'application/json'
+            },
+           
+        });
+        
+        const jsondeleteCard = request.then((res) => {
+           if (res.ok) {
+               return res.json();
+           }
+           return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        
+      return jsondeleteCard  
+    }
+    addLikes(id) {
+        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/likes/' + id, {
+            method: 'PUT',
+            headers: {
+                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
+                'Content-Type': 'application/json'
+            },
+           
+        });
+        
+        const json = request.then((res) => {
+           if (res.ok) {
+               return res.json();
+           }
+           return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        
+      return json  
+    }
+    deleteLikes(id) {
+        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/likes/' + id, {
+            method: 'DELETE',
+            headers: {
+                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
+                'Content-Type': 'application/json'
+            },
+           
+        });
+        
+        const json = request.then((res) => {
+           if (res.ok) {
+               return res.json();
+           }
+           return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        
+      return json  
+    }
+
+    setAvatar(avatarLink) {
+        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/users/me/avatar', {
+            method: 'PATCH',
+            headers: {
+                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                avatar: avatarLink,
+                
+              })
+        });
+        
+        const json = request.then((res) => {
+           if (res.ok) {
+               return res.json();
+           }
+           return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        
+      return json 
+    }
 } 

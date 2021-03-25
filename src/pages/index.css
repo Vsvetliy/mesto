@@ -10,14 +10,19 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
-
+.avatar_icon {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: -1;
+}
 
 
 .like_group {
-    outline: 1px solid rgb(250, 1, 237);
+    
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
+    
     align-items: center;
     margin-top: 22px;
     margin-right: 20px;
@@ -37,6 +42,8 @@
     color: #000000;
 }
 
-
+.delet_none {
+    display: none;
+}
 
 

@@ -10,11 +10,13 @@ import PopupWithImage from '../components/PopupWithImage.js';
 
 const api = new Api();
 const dataInfoUser = api.getInfoUser();
-
+let userId;
 
 
   
 const popupAddFormElement = document.querySelector('.popup_add-form').querySelector('.popup__validatable');
+const popupSetAvatar = document.querySelector('.popup_aupdate_avatar').querySelector('.popup__validatable');
+
 const profileElement = document.querySelector('.popup_profile').querySelector('.popup__container');
 const popupProfileElement = document.querySelector('.popup_profile').querySelector('.popup__validatable');
 const popupOpenButton = document.querySelector('.profile__edit-button');
@@ -30,26 +32,11 @@ const validateOptions = {
   inputTypeActiveClass: 'popup__input_type_error'
 };
 let section;
-
-
-api.getCards()
-  .then((data) => {
-    const sectionOptions = {
-      items: data,
-      renderer: addElement
-    }
-    section = new Section(sectionOptions, '.elements')
-    render(section)
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-  
-
+const avatarUser = document.querySelector('.profile__photo-avatar');
 
 const popupAddFormValidator =  new FormValidator(validateOptions, popupAddFormElement);
 const popupProfileValidator =  new FormValidator(validateOptions, popupProfileElement);
+const popupSetAvatarValidator =  new FormValidator(validateOptions, popupSetAvatar);
 
 const popupProfile = new PopupWithForm('.popup_profile', handleProfileFormSubmit)
 const popupAddForm = new PopupWithForm('.popup_add-form', handleAddFormSubmit)
@@ -59,55 +46,26 @@ const userInfo = new UserInfo({
   avatarUserSelector: '.profile__photo-avatar',
 })
 
+const popupAvatarUser = new PopupWithForm('.popup_aupdate_avatar', handleAvatarUserSubmit)
+popupAvatarUser.setEventListeners()
+avatarUser.addEventListener('click', () => popupAvatarUser.open())
 
-
- 
-function addElement(data, container) {
-  const card = new Card(data, '.element-template', handleCardClick);
-  container.prepend(card.createCard());
-}
-
-function handleCardClick(data) {
-  popupImg.open(data);
-}
-
-function handleAddFormSubmit(evt, data) {
-  evt.preventDefault();
-  // section.addItem(
-  //   {
-  //     name: data.title,
-  //     link: data.link
-  //   });
-    popupAddForm.close ();
-  api.addNewCard(data)
-  .then((data) => {
-    section.addItem({
-      name: data.name,
-      link: data.link,
-      
-    }) 
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-  popupAddFormValidator.disableSubmit()
-
-}
-
-function handleProfileFormSubmit (evt, data) {
+function handleAvatarUserSubmit (evt, data) {
   evt.preventDefault(); 
- 
-  popupProfile.close ()
-  api.setInfoUser(data)
+  popupAvatarUser.save()
+  
+  api.setAvatar(data.link)
     .then((data) => {
       userInfo.setUserInfo({
         name: data.name,
         job: data.about,
         avatar: data.avatar
       }) 
+      popupAvatarUser.close ()
     })
     .catch((err) => {
       console.log(err);
+      popupAvatarUser.close ()
     });
 }
 
@@ -117,16 +75,63 @@ function handleProfileFormSubmit (evt, data) {
 
 
 
+function addElement(data, container) {
+  const card = new Card(data, '.element-template', handleCardClick, userId, api);
+  container.prepend(card.createCard());
+}
 
+function handleCardClick(data) {
+  popupImg.open(data);
+}
+
+function handleAddFormSubmit(evt, data) {
+  evt.preventDefault();
+  
+    popupAddForm.save ();
+
+
+  api.addNewCard(data)
+  .then((data) => {
+    section.addItem(data)
+    popupAddForm.close ();
+  })
+  
+  .catch((err) => {
+    console.log(err);
+    popupAddForm.close ();
+  });
+  popupAddFormValidator.disableSubmit()
+
+}
+
+function handleProfileFormSubmit (evt, data) {
+  evt.preventDefault(); 
+ popupProfile.save()
+  
+  api.setInfoUser(data)
+    .then((data) => {
+      userInfo.setUserInfo({
+        name: data.name,
+        job: data.about,
+        avatar: data.avatar
+      }) 
+      popupProfile.close ()
+    })
+    .catch((err) => {
+      console.log(err);
+      popupProfile.close ()
+    });
+}
 
 function enableValidation() {
   popupAddFormValidator.enableValidation();
   popupProfileValidator.enableValidation();
+  popupSetAvatarValidator.enableValidation();
 }; 
 
 
 function render(section) {
-  api.getCards()
+ 
   section.render()
   popupProfile.setEventListeners()
   popupAddForm.setEventListeners()
@@ -147,8 +152,22 @@ dataInfoUser
   userInfo.setUserInfo({
     name: data.name,
     job: data.about,
-    avatar: data.avatar
+    avatar: data.avatar,
+    
   }) 
+  userId = data._id
+  api.getCards()
+  .then((data) => {
+    const sectionOptions = {
+      items: data,
+      renderer: addElement
+    }
+    section = new Section(sectionOptions, '.elements')
+    render(section)
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 .catch((err) => {
   console.log(err);
