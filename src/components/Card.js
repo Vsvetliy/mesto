@@ -84,7 +84,7 @@ export default class Card {
           });
           
           popup.close();
-        });
+        }, true);
       popup.setEventListeners()
       popup.open()
     }
