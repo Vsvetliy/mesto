@@ -54,7 +54,7 @@ function handleAvatarUserSubmit (evt, data) {
   evt.preventDefault(); 
   popupAvatarUser.save()
   
-  api.setAvatar(data.link)
+  api.setAvatar(data.avatar)
     .then((data) => {
       userInfo.setUserInfo({
         name: data.name,
@@ -67,6 +67,7 @@ function handleAvatarUserSubmit (evt, data) {
       console.log(err);
       popupAvatarUser.close ()
     });
+    popupSetAvatarValidator.disableSubmit()
 }
 
 
