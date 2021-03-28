@@ -1,5 +1,5 @@
 
-import PopupWithForm from '../components/PopupWithForm.js';
+
 export default class UserInfo {
 	constructor(options) {
        

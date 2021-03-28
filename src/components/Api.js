@@ -1,167 +1,99 @@
 export default class Api {
     constructor(options) {
-     
+        this._options = options;
     }
+       
+    _toJson(request) {
+      return  request.then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`Ошибка: ${res.status}`);
+         })
+         
+       
+    }
+
     getInfoUser() {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/users/me', {
+        const request = fetch(this._options.baseUrl + 'users/me', {
             method: 'get',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
-            
+            headers: this._options.headers,
         });
-        
-        const jsonInfoUser = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return jsonInfoUser  
+        return this._toJson(request)
+    
     }
+
     getCards() {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards ', {
+        const request = fetch(this._options.baseUrl + 'cards ', {
             method: 'get',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
-            
+            headers: this._options.headers,
         });
         
-        const jsonCards = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return jsonCards  
+        return this._toJson(request)  
     }
+
     setInfoUser(data) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/users/me', {
+        const request = fetch(this._options.baseUrl + 'users/me', {   
             method: 'PATCH',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
+            headers: this._options.headers,
             body: JSON.stringify({
                 name: data.name,
                 about: data.job
               })
         });
         
-        const jsonSetInfoUser = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return jsonSetInfoUser  
+        return this._toJson(request)
     }
+    
     addNewCard(data) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards ', {
+        const request = fetch(this._options.baseUrl + 'cards', {  
             method: 'POST',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
+            headers: this._options.headers,
             body: JSON.stringify({
                 name: data.title,
                 link: data.link
               })
         });
         
-        const jsonaddNewCard = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return jsonaddNewCard  
+        return this._toJson(request)
     }
+
     deleteCard(id) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/' + id, {
+        const request = fetch(this._options.baseUrl + 'cards/' + id, {
             method: 'DELETE',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
-           
+            headers: this._options.headers,
         });
         
-        const jsondeleteCard = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return jsondeleteCard  
+        return this._toJson(request)
     }
+
     addLikes(id) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/likes/' + id, {
+        const request = fetch(this._options.baseUrl + 'cards/likes/' + id, {
             method: 'PUT',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
-           
+            headers: this._options.headers,
         });
         
-        const json = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return json  
+        return this._toJson(request)
     }
+
     deleteLikes(id) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/cards/likes/' + id, {
+        const request = fetch(this._options.baseUrl + 'cards/likes/' + id, {
             method: 'DELETE',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
-           
+            headers: this._options.headers,
         });
         
-        const json = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return json  
+        return this._toJson(request)  
     }
 
     setAvatar(avatarLink) {
-        const request = fetch('https://mesto.nomoreparties.co/v1/cohort-21/users/me/avatar', {
+        const request = fetch(this._options.baseUrl + 'users/me/avatar', {
             method: 'PATCH',
-            headers: {
-                authorization: '32d33121-ecae-4993-8e9f-60de3dfa8ed6',
-                'Content-Type': 'application/json'
-            },
+            headers: this._options.headers,
             body: JSON.stringify({
                 avatar: avatarLink,
-                
-              })
+            })
         });
         
-        const json = request.then((res) => {
-           if (res.ok) {
-               return res.json();
-           }
-           return Promise.reject(`Ошибка: ${res.status}`);
-        })
-        
-      return json 
+        return this._toJson(request)
     }
 } 

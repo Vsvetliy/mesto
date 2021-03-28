@@ -1,6 +1,7 @@
-import PopupWithForm from '../components/PopupWithForm.js';
+
 export default class Card {
-	constructor(data, cardSelector, handleCardClick, userId, api) {
+	constructor(data, cardSelector, handleCardClick, userId, api, handleConfirmDelete) {
+        this._handleConfirmDelete = handleConfirmDelete;
         this._data = data;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
@@ -15,7 +16,9 @@ export default class Card {
         this._elementDeleteButton = this._templateCard.querySelector('.element__delete-button');
         this._popupImgImages = document.querySelector('.popup_img').querySelector('.popup__images');
         this._popupImgText = document.querySelector('.popup_img').querySelector('.popup__text');
-        
+        this._id = document.querySelector('#popup-confirm');
+        this._article = this._templateCard.querySelector('.element');
+
 	}
     createCard() {
         this._elementText.textContent = this._data.name; 
@@ -32,6 +35,7 @@ export default class Card {
         }
 
         this._addLikebuttonClickEventListener();
+        this._article.setAttribute("id", this._data._id);
         return this._templateCard;
     }
     
@@ -66,28 +70,16 @@ export default class Card {
         });
     }
 
+    
     _addDeleteButtonClickEventListener() {
-        this._elementDeleteButton.addEventListener('click', (evt) => { this._handleConfirmDelete(evt) });
-    }
-
-    _handleConfirmDelete(eventDelete) {
-      const popup = new PopupWithForm('.popup_confirm',(evt) => 
+        this._elementDeleteButton.addEventListener('click', (evt) => 
         {
-          evt.preventDefault();
-         
-          this._api.deleteCard(this._data._id)
-          .then((data) => {
-            eventDelete.target.closest('.element').remove();
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-          
-          popup.close();
-        }, true);
-      popup.setEventListeners()
-      popup.open()
+            evt.preventDefault();
+            this._id.value = this._data._id; 
+            this._handleConfirmDelete(evt) 
+        });
     }
+    
 
 
     _delete(evt) {
